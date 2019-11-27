@@ -1,9 +1,15 @@
 /**
  * @format
  */
-
+import 'react-native-gesture-handler';
+import React from 'react';
 import {AppRegistry} from 'react-native';
-import App from './App';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => App);
+import {NavigationService, Routes} from './src/ui/routes/';
+
+const RenderApp = () => (
+  <Routes ref={navigator => NavigationService.setContainer(navigator)} />
+);
+
+AppRegistry.registerComponent(appName, () => RenderApp);
