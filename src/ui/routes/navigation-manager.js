@@ -24,8 +24,6 @@ function resetToRoute(routeName, params) {
   _navigator.dispatch(resetAction);
 }
 
-//other navigation functions
-
 export default {
   navigate,
   resetToRoute,
