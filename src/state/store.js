@@ -11,8 +11,8 @@ const rootReducers = combineReducers({
   weather: WeatherReducer,
 });
 
-const tron = Reactotron.configure() // controls connection & communication settings
-  .useReactNative(asyncStorage()) // add all built-in react native plugins
+const tron = Reactotron.configure()
+  .useReactNative(asyncStorage())
   .use(reactotronRedux())
   .connect();
 

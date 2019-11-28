@@ -1,19 +1,26 @@
 import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
-import reactotron from 'reactotron-react-native';
+import {StyleSheet, Image} from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
-import {useDispatch} from 'react-redux';
-import {Container, Button, ButtonText, Text} from './select-place.style';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  Container,
+  Button,
+  ButtonText,
+  Loading,
+  ContainerImage,
+} from './select-place.style';
 import {getLocation} from '../../../state/weather/weather.action';
 
 export default function SelectPlaceScreen() {
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.weather.loading);
+
   const [city, setCity] = useState('');
 
   const items = [
     {label: 'São Paulo', value: 'paulo'},
     {label: 'Rio de Janeiro', value: 'jan'},
-    {label: 'São Francisco', value: 'san'},
+    {label: 'San Francisco', value: 'san'},
   ];
 
   const placeHolder = {
@@ -27,6 +34,10 @@ export default function SelectPlaceScreen() {
 
   return (
     <Container>
+      <ContainerImage>
+        <Image source={require('../../../../assets/gol_logo.png')} />
+      </ContainerImage>
+
       <RNPickerSelect
         style={pickerSelectStyles}
         onValueChange={value => setCity(value)}
@@ -35,7 +46,7 @@ export default function SelectPlaceScreen() {
       />
 
       <Button onPress={selectCity}>
-        <ButtonText>Search</ButtonText>
+        {loading ? <Loading /> : <ButtonText>Search</ButtonText>}
       </Button>
     </Container>
   );
@@ -48,6 +59,16 @@ const pickerSelectStyles = StyleSheet.create({
     paddingVertical: 15,
     textAlign: 'center',
     borderRadius: 4,
+    color: 'white',
+    fontWeight: 'bold',
+    width: '90%',
+    alignSelf: 'center',
+    backgroundColor: '#ef6f38',
+  },
+
+  inputAndroid: {
+    fontSize: 20,
+    borderRadius: 20,
     color: 'white',
     fontWeight: 'bold',
     width: '90%',

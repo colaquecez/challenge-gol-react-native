@@ -23,3 +23,11 @@ export function getLocationSuccess(obj) {
     payload: obj,
   };
 }
+
+export const ACTION_LOADING = `${prefix}.ACTION_LOADING`;
+export function loading(flag) {
+  return {
+    type: ACTION_LOADING,
+    payload: flag,
+  };
+}

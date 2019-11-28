@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 10px;
 `;
 
@@ -12,6 +12,7 @@ export const IconWeather = styled.Image`
 `;
 
 export const TextWeather = styled.Text`
-  color: #999;
+  color: #ef6f38;
   font-size: 16px;
+  font-weight: bold;
 `;

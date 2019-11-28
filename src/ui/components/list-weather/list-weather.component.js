@@ -8,17 +8,9 @@ export default function ListWeatherComponent({item, fire}) {
     <Container>
       <TextWeather>{fomartDate(item.applicable_date)}</TextWeather>
       <TextWeather>
-        Min:{' '}
         {fire
-          ? `${fixNumber(formatToFahrenheit(item.min_temp))} ºF`
-          : `${fixNumber(item.min_temp)} ºC`
-          }
-      </TextWeather>
-      <TextWeather>
-        Max:{' '}
-        {fire
-          ? `${fixNumber(formatToFahrenheit(item.max_temp))} ºF`
-          : `  ${fixNumber(item.max_temp)} ºC`}
+          ? `${fixNumber(formatToFahrenheit(item.the_temp))} ºF`
+          : `${fixNumber(item.the_temp)} ºC`}
       </TextWeather>
       <IconWeather
         source={{
@@ -29,11 +21,11 @@ export default function ListWeatherComponent({item, fire}) {
   );
 }
 
-function formatToFahrenheit(celsius) {
+export function formatToFahrenheit(celsius) {
   return celsius * 1.8 + 32;
 }
 
-function fixNumber(number) {
+export function fixNumber(number) {
   return number.toFixed(0);
 }
 
