@@ -61,13 +61,13 @@ export default function WeatherInformationScreen() {
         />
       </ContainerList>
       <ContainerSwitch>
-        <TextWeather>Celsius </TextWeather>
+        <TextWeather style={{paddingRight: 10}}>Celsius </TextWeather>
         <Switch
           thumbColor="#ef6f38"
           value={fire}
           onValueChange={item => setFire(item)}
         />
-        <TextWeather>Fahrenheit </TextWeather>
+        <TextWeather style={{paddingLeft: 10}}>Fahrenheit </TextWeather>
       </ContainerSwitch>
     </Container>
   );
